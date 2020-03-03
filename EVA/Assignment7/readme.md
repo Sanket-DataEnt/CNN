@@ -12,4 +12,4 @@ Created 5 functions and called them in final.ipynb file. Details of the function
 
 5. init.py: To initialise
 
-Maximum Receptive field achieved in this model is 66.
+Maximum Receptive field achieved in this model is 66. Achieved 85% overall accuracy at 41st epoch.
