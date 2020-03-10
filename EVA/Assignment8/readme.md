@@ -7,10 +7,23 @@
 ### Accuracy achieved:
 Achieved accuracy of 88.3% in 87th epoch. 
 
+### Files Details:
+
+Created 5 functions and called them in final.ipynb file. Details of the function are:-
+
+    augmentation.py : It will do all types of augmentation.
+
+    dataset.py : It will help in downloading CIFAR10 dataset, check wehether GPU is available and put datasets on dataloaders.
+
+    model.py : It includes the model architecture along with RESNET versions.
+
+    training_new.py : It includes training and test functions
+
+    init.py: To initialise
+
+
 
 ### Logs of CIFAR10 dataset using RESNET18
-
-
 
   0%|          | 0/391 [00:00<?, ?it/s]
 
