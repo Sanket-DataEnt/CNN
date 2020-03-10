@@ -5,7 +5,7 @@
   4. Your Target is 85% accuracy. No limit on the number of epochs. Use default ResNet18 code (so params are fixed). 
   
 ### Accuracy achieved:
-Achieved accuracy of 88.3% in 87th epoch. 
+Achieved accuracy of 88.3% in 86th epoch. 
 
 ### Files Details:
 
