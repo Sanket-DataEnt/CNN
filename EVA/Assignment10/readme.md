@@ -22,25 +22,25 @@ Achieved accuracy of 89.38% in 48th epoch.
 
 Created 10 functions and called them in 10_final.ipynb file. Details of the function are:-
 
-trainalbumentation.py : It performs following transformation on train dataset: Horizontalflip, Normalize, Cutout and ToTensor.
+1. trainalbumentation.py : It performs following transformation on train dataset: Horizontalflip, Normalize, Cutout and ToTensor.
 
-testalbumentation.py : It performs following transformation on test dataset: Normalize and ToTensor.
+2. testalbumentation.py : It performs following transformation on test dataset: Normalize and ToTensor.
 
-dataset.py : It will help in downloading CIFAR10 dataset, check wehether GPU is available and put datasets on dataloaders.
+3. dataset.py : It will help in downloading CIFAR10 dataset, check wehether GPU is available and put datasets on dataloaders.
 
-general_utils.py : It includes general functions which are directly called in the mail file like, imshow(to visualize image), lr_finder(to find the best LR), among others.
+4. general_utils.py : It includes general functions which are directly called in the mail file like, imshow(to visualize image), lr_finder(to find the best LR), among others.
 
-gradcam.py : It is used to apply GradCAM and heatmap to test data.
+5. gradcam.py : It is used to apply GradCAM and heatmap to test data.
 
-lr_finer.py : It includes the code to find the best Learning Rate.
+6. lr_finer.py : It includes the code to find the best Learning Rate.
 
-model.py : It includes the model architecture along with RESNET versions.
+7. model.py : It includes the model architecture along with RESNET versions.
 
-train_.py : It includes training function.
+8. train_.py : It includes training function.
 
-test_.py : It includes test function.
+9. test_.py : It includes test function.
 
-init.py: To initialise
+10. init.py: To initialise
 
 
 ### Logs of CIFAR10 dataset using RESNET18 :
