@@ -16,7 +16,7 @@
     10. Submit
 
 ### Accuracy Achieved :
-Achieved accuracy of 89.38% in 48 epoch.
+Achieved accuracy of 89.38% in 48th epoch.
 
 ### File Details :
 
