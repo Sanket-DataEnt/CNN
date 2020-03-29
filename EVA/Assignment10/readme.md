@@ -446,4 +446,5 @@ Epoch= 49 Loss=0.004010808654129505 Batch_id=390 Accuracy=100.00: 100%|███
 100%|██████████| 79/79 [00:03<00:00, 19.76it/s]
 
 Test Loss= 0.47275516 Test Accuracy= 90.84
+
 Finished Training
