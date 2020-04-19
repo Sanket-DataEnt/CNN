@@ -33,5 +33,5 @@
     
     f. is_crowd : 0 or 1, explains whether this instance is labeled as coco's crowd region.
     
-    g. area = area of the bounding box i.e width*height
+    g. area = area of the bounding box i.e (width*height)
     
