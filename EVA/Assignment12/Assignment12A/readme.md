@@ -11,6 +11,8 @@
      d. file_name : name of the file.
   
      e. license : describe the image's license.
+     
+     f. date_captured : Date at which image was taken.
   
 2. Annotations:
 
@@ -30,4 +32,6 @@
     e. bbox : [x, y, width, height] of bounding box
     
     f. is_crowd : 0 or 1, explains whether this instance is labeled as coco's crowd region.
+    
+    g. area = area of the bounding box i.e width*height
     
