@@ -5,16 +5,16 @@ Given an image with foreground objects and background image, predict the depth m
 
 There are four kinds of images in our dataset (fg, bg, fg_bg, masks, depth) :
 
-1. Foreground Image (fg) :- Different Man, woman, kids, group of person(for background transparency we have taken png images)
+1. Foreground Image (fg) :- Different Man, woman, kids, group of person(for background transparency only png images were selected)
 ![FG](https://user-images.githubusercontent.com/25937235/82763067-6d6a9680-9e22-11ea-9325-d7175bfb90ef.jpg)
 
-2. Background Image (bg) :- Restricted background to library images(for restricting size of image we have taken jpg images)
+2. Background Image (bg) :- Restricted background to library images(for restricting size of image jpg format was selected.)
 ![BG](https://user-images.githubusercontent.com/25937235/82763062-604da780-9e22-11ea-8668-b92505f0276d.jpg)
 
-3. Foreground+Background Image (fg_bg) :- Foreground image superimposed over background image (for restricting size of images we have taken jpg images)
+3. Foreground+Background Image (fg_bg) :- Foreground image superimposed over background image (for restricting size of images jpg format was selected)
 ![FG_BG](https://user-images.githubusercontent.com/25937235/82783841-f3b3c680-9e7c-11ea-91a7-89f0a06d9522.jpg)
 
-4. Masks :- Masks images were extracted from foreground images(we have taken grayscale images)(.jpg)
+4. Masks :- Masks images were extracted from foreground images(only grayscale images were selected)(.jpg)
 ![Mask](https://user-images.githubusercontent.com/25937235/82763069-70fe1d80-9e22-11ea-9871-393b0c494b55.jpg)
 
 5. Depth Image :- Extracted depth images from fg_bg image using nyu model(for restricing size of images, grayscale images extracted from colormap. Grayscale image also helps to restrict memory usage. If it is possible to get all the information in one channel why to take three channels.)(.jpg)
