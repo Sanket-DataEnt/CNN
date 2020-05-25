@@ -92,11 +92,20 @@ To make code more simple to understand, several modules were created, which has 
       - It contains the algorithms which convert the unzipped images into RGB and Grayscale, so that they can be trained by the model.
       - It also have the algorithm which can find the original background image given the Depth or the Mask image.
       - Details of the above code is available on dataset.py.
-
-  
-  - model -> This class contains the model which I have used to train the data. Before finalizing the model, I have tried various models some were actually giving very good results but because they were having approx 30Million to 40 Million parameters so, it was very difficult for me to finish training of the model on time without facing memory error in Colab. So, I explored and decided to use Upsampling and Downsampling model for Depth and Simple model architecture for Mask as I found detecting Mask was not very tedious job for model. The model architecture which I have used contains around total 3,631,616 parameters. I know you are now more interested in exploring the result and training time but have some patience. Let's first check the model architecture by exploring model.py file, which will help you in understanding the heart of this project and how it is working to predict mask and depth images in a single architecture.
-  
-  - training -> This file is very crucial, it explains how I am training the model. Initially, I was very happy by seeing the visuals of the images but later on when I tried different model architecture and loss functions it was very difficult for me to accept or reject by just checking the visulas.So, I want a mathematical function which should explain by numbers how good is my predicted image. Therefore, I choose Intersection Over Union (IOU) to test my results. If IOU for a depth or mask is close to 1 then predicted images are very good however, if it is not then we should have to focus on imrovising architecture or/and loss function. Apart from these, it also contains the functions for plotting and saving the images. To explore and learn more you can go through training.py file.  
+      
+    4. Model :
+      - This file contains the model architecture, which is used to train the model.
+      - Upsampling and Downsampling model for Depth and Simple model architecture for Mask is used. 
+      - The architecture has contains around total 3,631,616 parameters.
+      - Details of the above code which is used to predict mask and depth images is available in model.py.
+      
+    5. Training :
+      - This file explains how the model is trained.
+      - Just by visualising the image do not give confidence to analyze the result of several model architecture and loss functions.
+      - Intersection Over Union (IOU) is a mathematical expression which is used to predict how good the depth and mask image is. 
+      - If IOU for a depth or mask is close to 1 then predicted images are very good however, if it is not then architecture or/and loss function should be imrovised.
+      - This file also contains the functions for plotting and saving the images.
+      - Details of the above code is available at training.py file.
   
 ### Different Loss Functions : - 
 
