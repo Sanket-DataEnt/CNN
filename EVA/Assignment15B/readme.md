@@ -45,7 +45,7 @@ Loading data in Gbs (gigabytes) is a very big challenge to run the model on Goog
 
   Method 1. Loading data from image folders :
   
-             - Dataset including 1,200,100 images were available on the google drive inside 120 folders (40 folders each for         Foreground+Background, Masks and Depths) with 10,000 images each and a background folder with 100 images.  
+             - Dataset including 1,200,100 images were available on the google drive inside 120 folders (40 folders each for Foreground+Background, Masks and Depths) with 10,000 images each and a background folder with 100 images.  
              - It took around 40-45 minutes to read these images from 121 folders.
              - It also took around 5-6 hours in training just 1 epoch.
              
