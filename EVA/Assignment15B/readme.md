@@ -11,7 +11,7 @@ There are four kinds of images in our dataset (fg, bg, fg_bg, masks, depth) :
 2. Background Image (bg) :- We restricted background to library images(for restricting size of image we have taken jpg images)
 ![BG](https://user-images.githubusercontent.com/25937235/82763062-604da780-9e22-11ea-8668-b92505f0276d.jpg)
 
-3. Foreground+Background Image (fg_bg) :- bg superposed over fg (for restricting size of images we have taken jpg images)
+3. Foreground+Background Image (fg_bg) :- Background superposed over Foreground (for restricting size of images we have taken jpg images)
 ![FG_BG](https://user-images.githubusercontent.com/25937235/82783841-f3b3c680-9e7c-11ea-91a7-89f0a06d9522.jpg)
 
 4. Masks :- masks extracted from fg images(we have taken grayscale images)(.jpg)
@@ -105,7 +105,12 @@ I have tried various Loss functions for this data, these are :
       - IOU for Mask = 0.777
       - IOU for depth Image = 0.528
       - Although loss value is reduced very much but the respective improvement is not visible in the predicted iamges and IOUs.
-      - Below is the image which I got while training the model.
+      - Below is the Image got while training the model.
+        - Description of the Image :-
+          - 1st Image Grid = Ground Truth of Depth Image.
+          - 2nd Image Grid = Predicted Depth Image.
+          - 3rd Image Grid = Ground Truth of Mask.
+          - 4th Image Grid = Predicted Mask Image.
       
 <img width="1150" alt="L1SmoothLoss" src="https://user-images.githubusercontent.com/25937235/82765053-17511f80-9e31-11ea-9549-7bddd7cdcfad.png">
 
@@ -117,14 +122,43 @@ I have tried various Loss functions for this data, these are :
         - IOU for Mask = 0.88
         - IOU for Depth = 0.61
         - Below is the train image which I got after running 1 epoch and 500 batches.
+        
+          - Description of the Image :- 
+            - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
+            - 2nd Image Grid = Ground Truth of Mask.
+            - 3rd Image Grid = Ground Truth of Depth Image.
+            - 4th Image Grid = Predicted Mask Image.
+            - 5th Image grid = Predicted Depth Image.
+            
 ![1_500](https://user-images.githubusercontent.com/25937235/82765230-7499a080-9e32-11ea-9570-e9a099960614.jpg)
 
-        - Below is the train image which I got after running 10 epochs and 2000 batches
+        - Below is the train image which I got after running 10 epochs and 2000 batches.
+        
+         - Description of the Image :- 
+            - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
+            - 2nd Image Grid = Ground Truth of Mask.
+            - 3rd Image Grid = Ground Truth of Depth Image.
+            - 4th Image Grid = Predicted Mask Image.
+            - 5th Image grid = Predicted Depth Image.
 ![12_8500](https://user-images.githubusercontent.com/25937235/82765232-76fbfa80-9e32-11ea-9cd6-88a1b5b28db6.jpg)
 
         - Below is the test image which I got after running 2 epochs and 500 batches
+        
+          - Description of the test Image :- 
+            - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
+            - 2nd Image Grid = Ground Truth of Mask.
+            - 3rd Image Grid = Ground Truth of Depth Image.
+            - 4th Image Grid = Predicted Mask Image.
+            - 5th Image grid = Predicted Depth Image.
 ![_test_12_500](https://user-images.githubusercontent.com/25937235/82765234-7c594500-9e32-11ea-84e5-402daf70623a.jpg)
 
         - Below is the test image which I got after running 10 epochs and 1500 batches
+        
+           - Description of the test Image :- 
+            - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
+            - 2nd Image Grid = Ground Truth of Mask.
+            - 3rd Image Grid = Ground Truth of Depth Image.
+            - 4th Image Grid = Predicted Mask Image.
+            - 5th Image grid = Predicted Depth Image.
 ![13_2000](https://user-images.githubusercontent.com/25937235/82765235-7f543580-9e32-11ea-9afc-0f82fe7bfdce.jpg)
  
