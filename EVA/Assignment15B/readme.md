@@ -41,33 +41,40 @@ Total images =  12,001,00
 
 ### Data Loading
 
-To load this huge amount of data is also a challenge if you do not have access to proper resources. As, I was working on Google Colab as it offers free GPU, following are the ideas which I applied to load the dataset : -
-  - Loading data from Image Folders -> Initially, I thought this is the best idea, I read the 12,001,00 images into Google       Colab directly through folders on Google drive, where I stored the images. It took more then 40 minutes to load the data through these folders. Then I tried to train, it took around 5-6 hours in training just one epoch. So, now I got, definitely this is not the good idea. So, thought to explore second idea.
-  - Unzipping directly into Colab memory -> Now, I initially zipped my all the images which were stored in the folders on the drive to zipped folders. It took around 3 days to Zip the complete 12 lakh images on Google Colab. One thing I learned during this, patience is the key to success. I used the following code to Zip the images:
-  
-  %%time
-  
-from zipfile import ZipFile
+Loading data in Gbs (gigabytes) is a very big challenge to run the model on Google Colab. Following steps were taken to succesfully load the dataset :- 
 
-count = 0
-
-with ZipFile('DepthImages_Sanket.zip', 'a') as myzip:
-
-  for r,d, files in os.walk('/content/drive/My Drive/Assignment1/Output/DepthImage/15'):
+  Method 1. Loading data from image folders :
   
-    for f in files:
-    
-      x = r + '/' + f
-      
-      count = count + 1
-      
-      if(count%500==0):
-      
-        print(count, end=',')
-        
-      myzip.write(x, x.split('/')[-3] + '/' + x.split('/')[-2] + '/' + x.split('/')[-1])
-      
-Finally, after getting the zipped image, I directly unzipped the images into the internal memory of Colab instead of unzipping in the drive. This took around 10 minutes to read all the images. Some 6 corrupt images came, which were removed. So, to train my model I have total (399998x3 + 100) images. This was definitely very fast as of now, however to know what was its effect on training, whether it has decreased the training time for 1 epoch or not, remember patience is the key to success. :) Let's move ahead.
+             - Dataset including 1,200,100 images were available on the google drive inside 120 folders (40 folders each for         Foreground+Background, Masks and Depths) with 10,000 images each and a background folder with 100 images.  
+             - It took around 40-45 minutes to read these images from 121 folders.
+             - It also took around 5-6 hours in training just 1 epoch.
+             
+  Method 2. Unzipping image folders directly into colab memory :
+  
+             - Since, above method was not optimized so tried this method.
+             - First of all, zip the 121 image folders. It is one time tedious task as it will take around 3 days to zip 1,200,100 images in 121 folders.
+             - Now, unzip the above zipped folders into the internal memory of Colab instead of unzipping in the drive. This operation took around 10 minutes.
+             - Following code is used to zip the images:
+             
+              from zipfile import ZipFile
+
+              count = 0
+
+              with ZipFile('DepthImages_Sanket.zip', 'a') as myzip:
+
+                for r,d, files in os.walk('/content/drive/My Drive/Assignment1/Output/DepthImage/15'):
+
+                  for f in files:
+
+                    x = r + '/' + f
+
+                    count = count + 1
+
+                    if(count%500==0):
+
+                      print(count, end=',')
+
+                    myzip.write(x, x.split('/')[-3] + '/' + x.split('/')[-2] + '/' + x.split('/')[-1])
 
 ### Structure :-
 
