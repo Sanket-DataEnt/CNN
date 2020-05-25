@@ -85,7 +85,7 @@ To make code more simple to understand, several modules were created, which has 
     2. Augmentation : 
        - This file contains the transformation strategy for the dataset.
        - Since data was more than enough to train the model,hence except resizing the images from 160x160 to 64x64 no other transformations were necessarily required. Due to memory constraint, resizing of images is important.
-       - Details of the above module can be found in [augmentayion.py](https://github.com/Sanket-DataEnt/CNN/blob/master/EVA/Assignment15B/augmentation.py)
+       - Details of the above module can be found in [augmentation] (https://classroom.udacity.com/courses/ud090)
 
 
 
