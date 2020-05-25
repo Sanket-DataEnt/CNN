@@ -47,7 +47,7 @@ Loading data in Gbs (gigabytes) is a very big challenge to run the model on Goog
   
              - Dataset including 1,200,100 images were available on the google drive inside 120 folders (40 folders each for Foreground+Background, Masks and Depths) with 10,000 images each and a background folder with 100 images.  
              - It took around 40-45 minutes to read these images from 121 folders.
-             - It also took around 5-6 hours in training just 1 epoch.
+             - It also took around 5-6 hours to train just 1 epoch.
              
   Method 2. Unzipping image folders directly into colab memory :
   
@@ -76,9 +76,19 @@ Loading data in Gbs (gigabytes) is a very big challenge to run the model on Goog
 
                     myzip.write(x, x.split('/')[-3] + '/' + x.split('/')[-2] + '/' + x.split('/')[-1])
 
-### Structure :-
+### Details of files used :-
 
-To make my code more understandable, I tried to make my code in the modular format i,e it is something like a package. Just call the function from the file, if you don't want to go in the granularity of the code. Let's dive more into the modular structure of the code.
+To make code more simple to understand, several modules were created, which has their own unique operations. Following are the modules used in this project :-
+
+    1. FinalAssignment : This is the main file which calls other modules to predict depth and mask images by giving background and background+foreground images.
+    
+    2. Augmentation : 
+       - This file contains the transformation strategy for the dataset.
+       - Since data was more than enough to train the model,hence except resizing the images from 160x160 to 64x64 no other transformations were necessarily required. Due to memory constraint, resizing of images is important.
+       - Details of the above module can be found in [augmentayion.py](https://github.com/Sanket-DataEnt/CNN/blob/master/EVA/Assignment15B/augmentation.py)
+
+
+
 
   - Augmentation -> This file contains the transformation strategy for the dataset. Since, I have more than enough data size, so I just resized the image to 64x64 and do not applied other transformations. Initially, my image were of the size 160x160 but to keep balance between constraint of
 memory and training time in Colab, I choose to have image size of 64x64 with batch size of 32. The code for this is available in augmentation.py 
