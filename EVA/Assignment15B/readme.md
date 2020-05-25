@@ -5,19 +5,19 @@ Given an image with foreground objects and background image, predict the depth m
 
 There are four kinds of images in our dataset (fg, bg, fg_bg, masks, depth) :
 
-1. Foreground Image (fg) :- Different Man, Woman, kids, group of person(for background transparency we have taken png images)
+1. Foreground Image (fg) :- Different Man, woman, kids, group of person(for background transparency we have taken png images)
 ![FG](https://user-images.githubusercontent.com/25937235/82763067-6d6a9680-9e22-11ea-9325-d7175bfb90ef.jpg)
 
-2. Background Image (bg) :- We restricted background to library images(for restricting size of image we have taken jpg images)
+2. Background Image (bg) :- Restricted background to library images(for restricting size of image we have taken jpg images)
 ![BG](https://user-images.githubusercontent.com/25937235/82763062-604da780-9e22-11ea-8668-b92505f0276d.jpg)
 
-3. Foreground+Background Image (fg_bg) :- Background superposed over Foreground (for restricting size of images we have taken jpg images)
+3. Foreground+Background Image (fg_bg) :- Foreground image superimposed over background image (for restricting size of images we have taken jpg images)
 ![FG_BG](https://user-images.githubusercontent.com/25937235/82783841-f3b3c680-9e7c-11ea-91a7-89f0a06d9522.jpg)
 
-4. Masks :- masks extracted from fg images(we have taken grayscale images)(.jpg)
+4. Masks :- Masks images were extracted from foreground images(we have taken grayscale images)(.jpg)
 ![Mask](https://user-images.githubusercontent.com/25937235/82763069-70fe1d80-9e22-11ea-9871-393b0c494b55.jpg)
 
-5. Depth Image :- We have extracted depth images from fg_bg using nyu model(for restricing size of images we have taken grayscale images extracted from colormap. One reason for taking grayscale image is to restrict memory usage. If we are getting all the information in 1 channel why to take three channels.)(.jpg)
+5. Depth Image :- Extracted depth images from fg_bg image using nyu model(for restricing size of images, grayscale images extracted from colormap. Grayscale image also helps to restrict memory usage. If it is possible to get all the information in one channel why to take three channels.)(.jpg)
 ![Depth](https://user-images.githubusercontent.com/25937235/82763438-67c28000-9e25-11ea-869c-6124601f3597.jpg)
 
 Total images of each kind : 
@@ -32,7 +32,7 @@ Total images of each kind :
 
   - depth :- 400000
 
-So, Total we have 12,001,00 images for this project.
+Total images =  12,001,00
 
 ### Input and Output
 
