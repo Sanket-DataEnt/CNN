@@ -12,7 +12,7 @@ There are four kinds of images in our dataset (fg, bg, fg_bg, masks, depth) :
 ![BG](https://user-images.githubusercontent.com/25937235/82763062-604da780-9e22-11ea-8668-b92505f0276d.jpg)
 
 3. Foreground+Background Image (fg_bg) :- bg superposed over fg (for restricting size of images we have taken jpg images)
-![FG_BG_Mask](https://user-images.githubusercontent.com/25937235/82763065-6774b580-9e22-11ea-872e-272b9e0f3fcd.jpg)
+![FG_BG](https://user-images.githubusercontent.com/25937235/82783841-f3b3c680-9e7c-11ea-91a7-89f0a06d9522.jpg)
 
 4. Masks :- masks extracted from fg images(we have taken grayscale images)(.jpg)
 ![Mask](https://user-images.githubusercontent.com/25937235/82763069-70fe1d80-9e22-11ea-9871-393b0c494b55.jpg)
@@ -41,9 +41,9 @@ So, Total we have 12,001,00 images for this project.
 
 ### Data Loading
 
-When we have this amount of data, some ideas come to our mind, following are the ideas : -
-  - Loading data from Image Folders -> Initially, I thought this is the best idea, I read the 12,001,00 images into Google       Colab. It took more then 40 minutes to load the data. Then I tried to train, it took around 5-6 hours in training just one epoch. So, now I got definitely this is not the good idea. So, thought to explore second idea.
-  - Unzipping directly into Colab memory -> Now, I initially zipped my all the images. It took around 3 days to Zip the 12 lakh images on Google Colab. One thing I learn during this, patience is the key to success. I used the following code to Zip the images:
+To load this huge amount of data is also a challenge if you do not have access to proper resources. As, I was working on Google Colab as it offers free GPU, following are the ideas which I applied to load the dataset : -
+  - Loading data from Image Folders -> Initially, I thought this is the best idea, I read the 12,001,00 images into Google       Colab directly through folders on Google drive, where I stored the images. It took more then 40 minutes to load the data through these folders. Then I tried to train, it took around 5-6 hours in training just one epoch. So, now I got, definitely this is not the good idea. So, thought to explore second idea.
+  - Unzipping directly into Colab memory -> Now, I initially zipped my all the images which were stored in the folders on the drive to zipped folders. It took around 3 days to Zip the complete 12 lakh images on Google Colab. One thing I learned during this, patience is the key to success. I used the following code to Zip the images:
   
   %%time
   
@@ -67,20 +67,20 @@ with ZipFile('DepthImages_Sanket.zip', 'a') as myzip:
         
       myzip.write(x, x.split('/')[-3] + '/' + x.split('/')[-2] + '/' + x.split('/')[-1])
       
-Finally, after getting the zipped image, I directly read the unzipped images into the internal memory of Colab instead of unzipping in the drive. This took around 10 minutes. Some corrupt images came around 6 images, so removed them. So, to train my model I have total 399998 images. This was definitely very fast as of now, however to know what was its effect on training, whether it has decreased the training time for 1 epoch or not, remember patience is the key to success. :) Let's move ahead.
+Finally, after getting the zipped image, I directly unzipped the images into the internal memory of Colab instead of unzipping in the drive. This took around 10 minutes to read all the images. Some 6 corrupt images came, which were removed. So, to train my model I have total (399998x3 + 100) images. This was definitely very fast as of now, however to know what was its effect on training, whether it has decreased the training time for 1 epoch or not, remember patience is the key to success. :) Let's move ahead.
 
 ### Structure :-
 
-To make my code more understandable, I tried to make my code in the modular format i,e it is something like a package. Just call the function from the file. Let's dive more into the modular structure of the code.
+To make my code more understandable, I tried to make my code in the modular format i,e it is something like a package. Just call the function from the file, if you don't want to go in the granularity of the code. Let's dive more into the modular structure of the code.
 
-  - Augmentation -> This file contains the transformation strategy for the dataset. Since, I have more than enough data size, so I just resized the image to 64x64. Initially, my image were of the size 160x160 but to keep balance between constraint of
+  - Augmentation -> This file contains the transformation strategy for the dataset. Since, I have more than enough data size, so I just resized the image to 64x64 and do not applied other transformations. Initially, my image were of the size 160x160 but to keep balance between constraint of
 memory and training time in Colab, I choose to have image size of 64x64 with batch size of 32. The code for this is available in augmentation.py 
 
   - Dataset -> As name suggest, this class focusses only on the creation of the dataset. Actually, I have 40 folders each of FG+BG, Mask and Depth with 10,000 images each and BG has only 100 images. So, this class apply the tricky code which convert the unzipped images into RGB and Grayscale, so that they can be trained by the model. Furthermore, this class also contains the algorithm through which if you have the information of Depth or Mask we can directly search its Background image. If this excites you go and explore dataset.py. 
   
-  - model -> This class conatins the model which I have used to train the data. Before finalizing the model, I have tried various models some were actually giving very good results but because they were having more than 30Million to 40 Million parameters so, it was very difficult for me to finish training of the model on time without facing memory error in Colab. So, I explored and decided to use Upsampling and Downsampling model for Depth and Simple model for Mask. The model have around 3,631,616 total parameters. I know you are now more interested in exploring the result and training time but have some patience. Let's first check the architecture by exploring model.py file. Which will help you in understanding the heart of this project and how it is working to predict mask and depth images in a single architecture.
+  - model -> This class contains the model which I have used to train the data. Before finalizing the model, I have tried various models some were actually giving very good results but because they were having approx 30Million to 40 Million parameters so, it was very difficult for me to finish training of the model on time without facing memory error in Colab. So, I explored and decided to use Upsampling and Downsampling model for Depth and Simple model architecture for Mask as I found detecting Mask was not very tedious job for model. The model architecture which I have used contains around total 3,631,616 parameters. I know you are now more interested in exploring the result and training time but have some patience. Let's first check the model architecture by exploring model.py file, which will help you in understanding the heart of this project and how it is working to predict mask and depth images in a single architecture.
   
-  - training -> This file is very crucial, It explains how I am training the model. Initially, I was very happy by seeing the visuals of the images but later on when I tried different architecture and loss functions it was very difficult for me to accept or reject by just checking the visulas. I want a mathematical function which should explain by numbers how good is my predicted image. Therefore, I choose Intersection Over Union (IOU) to test my results. If IOU for a depth or mask is close to 1 then images are very good however, if it is not then we should have to focus on imrovising architecture or/and loss function. Apart from these, it also contains the functions for plotting and saving the images. To explore and leartn more you can go through training.py file.  
+  - training -> This file is very crucial, it explains how I am training the model. Initially, I was very happy by seeing the visuals of the images but later on when I tried different model architecture and loss functions it was very difficult for me to accept or reject by just checking the visulas.So, I want a mathematical function which should explain by numbers how good is my predicted image. Therefore, I choose Intersection Over Union (IOU) to test my results. If IOU for a depth or mask is close to 1 then predicted images are very good however, if it is not then we should have to focus on imrovising architecture or/and loss function. Apart from these, it also contains the functions for plotting and saving the images. To explore and learn more you can go through training.py file.  
   
 ### Different Loss Functions : - 
 
@@ -104,8 +104,8 @@ I have tried various Loss functions for this data, these are :
       - Depth Loss = 0.0130
       - IOU for Mask = 0.777
       - IOU for depth Image = 0.528
+      - Although loss value is reduced very much but the respective improvement is not visible in the predicted iamges and IOUs.
       - Below is the image which I got while training the model.
-      - Although loss value is reduced very much with this loss but the respective improvement is not visible in the predicted iamges and IOUs.
       
 <img width="1150" alt="L1SmoothLoss" src="https://user-images.githubusercontent.com/25937235/82765053-17511f80-9e31-11ea-9549-7bddd7cdcfad.png">
 
