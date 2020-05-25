@@ -144,6 +144,9 @@ I have tried various Loss functions for this data, these are :
         - Depth Loss = 0.09
         - IOU for Mask = 0.88
         - IOU for Depth = 0.61
+        - Loss function = (2*Loss_Depth + Loss_Mask)
+        - SGD Optimizer was used
+        - Initiated lr with value of 0.01
         - Below is the train image which was received after running 1 epoch and 500 batches.
         
           - Description of the Image :- 
