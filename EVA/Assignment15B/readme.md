@@ -80,24 +80,24 @@ Loading data in Gbs (gigabytes) is a very big challenge to run the model on Goog
 
 To make code more simple to understand, several modules were created, which has their own unique operations. Following are the modules used in this project :-
 
-    1. FinalAssignment : This is the main file which calls other modules to predict depth and mask images by giving background and background+foreground images.
+    1. FinalAssignment : This is the main file which calls other modules to predict depth and mask images by giving background and background+foreground images. link : https://github.com/Sanket-DataEnt/CNN/blob/master/EVA/Assignment15B/FinalAssignment.ipynb
     
     2. Augmentation : 
        - This file contains the transformation strategy for the dataset.
        - Since data was more than enough to train the model,hence except resizing the images from 160x160 to 64x64 no other transformations were necessarily required. Due to memory constraint, resizing of images is important.
-       - Details of the above module can be found in [augmentation] (augmentation.py)
+       - Details of the above module can be found in augmentation.py link : https://github.com/Sanket-DataEnt/CNN/blob/master/EVA/Assignment15B/augmentation.py
        
     3. Dataset :
       - As name suggest, this class focusses only on the creation of the dataset.
       - It contains the algorithms which convert the unzipped images into RGB and Grayscale, so that they can be trained by the model.
       - It also have the algorithm which can find the original background image given the Depth or the Mask image.
-      - Details of the above code is available on dataset.py.
+      - Details of the above code is available on dataset.py link : https://github.com/Sanket-DataEnt/CNN/blob/master/EVA/Assignment15B/dataset.py
       
     4. Model :
       - This file contains the model architecture, which is used to train the model.
       - Upsampling and Downsampling model for Depth and Simple model architecture for Mask is used. 
       - The architecture has contains around total 3,631,616 parameters.
-      - Details of the above code which is used to predict mask and depth images is available in model.py.
+      - Details of the above code which is used to predict mask and depth images is available in model.py link : https://github.com/Sanket-DataEnt/CNN/blob/master/EVA/Assignment15B/model.py
       
     5. Training :
       - This file explains how the model is trained.
@@ -105,7 +105,7 @@ To make code more simple to understand, several modules were created, which has 
       - Intersection Over Union (IOU) is a mathematical expression which is used to predict how good the depth and mask image is. 
       - If IOU for a depth or mask is close to 1 then predicted images are very good however, if it is not then architecture or/and loss function should be imrovised.
       - This file also contains the functions for plotting and saving the images.
-      - Details of the above code is available at training.py file.
+      - Details of the above code is available at training.py file link : https://github.com/Sanket-DataEnt/CNN/blob/master/EVA/Assignment15B/training.py
   
 ### Different Loss Functions : - 
 
