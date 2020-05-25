@@ -112,7 +112,6 @@ To make code more simple to understand, several modules were created, which has 
 I have tried various Loss functions for this data, these are :
 
     1. SSIM Loss : -
-      - It gave me following results 
       - Time took for 100 batches of size 32 = 55 seconds
       - Time took to complete 1 epoch = 88 minutes
       - Mask Loss = 0.10
@@ -122,14 +121,13 @@ I have tried various Loss functions for this data, these are :
       - Tried this loss for 5 epochs but result was not imroving much. Max Mask IOU = 0.76 and Max Depth IOU = 0.39
       
      2. L1 Smooth Loss :- 
-      - It gave me following results
       - Time took to complete 100 batches of size 32 = 83 seconds
       - Time took to complete 1 epoch = 130 minutes
       - Mask Loss = 0.004
       - Depth Loss = 0.0130
       - IOU for Mask = 0.777
       - IOU for depth Image = 0.528
-      - Although loss value is reduced very much but the respective improvement is not visible in the predicted iamges and IOUs.
+      - Although loss value is reduced very much but the respective improvement is not visible in the predicted images and IOUs.
       - Below is the Image got while training the model.
         - Description of the Image :-
           - 1st Image Grid = Ground Truth of Depth Image.
@@ -140,13 +138,13 @@ I have tried various Loss functions for this data, these are :
 <img width="1150" alt="L1SmoothLoss" src="https://user-images.githubusercontent.com/25937235/82765053-17511f80-9e31-11ea-9549-7bddd7cdcfad.png">
 
       3. L1 Loss : -
-        - It gave me satisfactory results in both train and test.
-        - I ran total 10 epochs.
+        - It gave satisfactory results in both train and test.
+        - total epochs ran = 10
         - Mask Loss = 0.002
         - Depth Loss = 0.09
         - IOU for Mask = 0.88
         - IOU for Depth = 0.61
-        - Below is the train image which I got after running 1 epoch and 500 batches.
+        - Below is the train image which was received after running 1 epoch and 500 batches.
         
           - Description of the Image :- 
             - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
@@ -155,7 +153,7 @@ I have tried various Loss functions for this data, these are :
             - 4th Image Grid = Predicted Mask Image.
             - 5th Image grid = Predicted Depth Image.         
 ![1_500](https://user-images.githubusercontent.com/25937235/82765230-7499a080-9e32-11ea-9570-e9a099960614.jpg)
-        - Below is the train image which I got after running 10 epochs and 2000 batches.
+        - Below is the train image which was received after running 10 epochs and 2000 batches.
         
          - Description of the Image :- 
             - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
@@ -164,7 +162,7 @@ I have tried various Loss functions for this data, these are :
             - 4th Image Grid = Predicted Mask Image.
             - 5th Image grid = Predicted Depth Image.
 ![12_8500](https://user-images.githubusercontent.com/25937235/82765232-76fbfa80-9e32-11ea-9cd6-88a1b5b28db6.jpg)
-        - Below is the test image which I got after running 2 epochs and 500 batches
+        - Below is the test image which was received after running 2 epochs and 500 batches
         
           - Description of the test Image :- 
             - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
@@ -173,7 +171,7 @@ I have tried various Loss functions for this data, these are :
             - 4th Image Grid = Predicted Mask Image.
             - 5th Image grid = Predicted Depth Image.
 ![_test_12_500](https://user-images.githubusercontent.com/25937235/82765234-7c594500-9e32-11ea-84e5-402daf70623a.jpg)
-        - Below is the test image which I got after running 10 epochs and 1500 batches
+        - Below is the test image which was received after running 10 epochs and 1500 batches
         
            - Description of the test Image :- 
             - 1st Image Grid = Ground Truth of Foreground Image overlayed over Background Image.
