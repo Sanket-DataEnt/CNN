@@ -85,15 +85,14 @@ To make code more simple to understand, several modules were created, which has 
     2. Augmentation : 
        - This file contains the transformation strategy for the dataset.
        - Since data was more than enough to train the model,hence except resizing the images from 160x160 to 64x64 no other transformations were necessarily required. Due to memory constraint, resizing of images is important.
-       - Details of the above module can be found in [augmentation] (https://classroom.udacity.com/courses/ud090)
+       - Details of the above module can be found in [augmentation] (augmentation.py)
+       
+    3. Dataset :
+      - As name suggest, this class focusses only on the creation of the dataset.
+      - It contains the algorithms which convert the unzipped images into RGB and Grayscale, so that they can be trained by the model.
+      - It also have the algorithm which can find the original background image given the Depth or the Mask image.
+      - Details of the above code is available on dataset.py.
 
-
-
-
-  - Augmentation -> This file contains the transformation strategy for the dataset. Since, I have more than enough data size, so I just resized the image to 64x64 and do not applied other transformations. Initially, my image were of the size 160x160 but to keep balance between constraint of
-memory and training time in Colab, I choose to have image size of 64x64 with batch size of 32. The code for this is available in augmentation.py 
-
-  - Dataset -> As name suggest, this class focusses only on the creation of the dataset. Actually, I have 40 folders each of FG+BG, Mask and Depth with 10,000 images each and BG has only 100 images. So, this class apply the tricky code which convert the unzipped images into RGB and Grayscale, so that they can be trained by the model. Furthermore, this class also contains the algorithm through which if you have the information of Depth or Mask we can directly search its Background image. If this excites you go and explore dataset.py. 
   
   - model -> This class contains the model which I have used to train the data. Before finalizing the model, I have tried various models some were actually giving very good results but because they were having approx 30Million to 40 Million parameters so, it was very difficult for me to finish training of the model on time without facing memory error in Colab. So, I explored and decided to use Upsampling and Downsampling model for Depth and Simple model architecture for Mask as I found detecting Mask was not very tedious job for model. The model architecture which I have used contains around total 3,631,616 parameters. I know you are now more interested in exploring the result and training time but have some patience. Let's first check the model architecture by exploring model.py file, which will help you in understanding the heart of this project and how it is working to predict mask and depth images in a single architecture.
   
