@@ -128,10 +128,8 @@ I have tried various Loss functions for this data, these are :
             - 2nd Image Grid = Ground Truth of Mask.
             - 3rd Image Grid = Ground Truth of Depth Image.
             - 4th Image Grid = Predicted Mask Image.
-            - 5th Image grid = Predicted Depth Image.
-            
+            - 5th Image grid = Predicted Depth Image.         
 ![1_500](https://user-images.githubusercontent.com/25937235/82765230-7499a080-9e32-11ea-9570-e9a099960614.jpg)
-
         - Below is the train image which I got after running 10 epochs and 2000 batches.
         
          - Description of the Image :- 
@@ -141,7 +139,6 @@ I have tried various Loss functions for this data, these are :
             - 4th Image Grid = Predicted Mask Image.
             - 5th Image grid = Predicted Depth Image.
 ![12_8500](https://user-images.githubusercontent.com/25937235/82765232-76fbfa80-9e32-11ea-9cd6-88a1b5b28db6.jpg)
-
         - Below is the test image which I got after running 2 epochs and 500 batches
         
           - Description of the test Image :- 
@@ -151,7 +148,6 @@ I have tried various Loss functions for this data, these are :
             - 4th Image Grid = Predicted Mask Image.
             - 5th Image grid = Predicted Depth Image.
 ![_test_12_500](https://user-images.githubusercontent.com/25937235/82765234-7c594500-9e32-11ea-84e5-402daf70623a.jpg)
-
         - Below is the test image which I got after running 10 epochs and 1500 batches
         
            - Description of the test Image :- 
